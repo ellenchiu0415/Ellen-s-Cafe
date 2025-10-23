@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ellen's Café｜品牌形象</title>
+  <!-- 字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5efe8;
+      --card:#fff7f2;
+      --accent:#8b5e3c;
+      --accent-2:#b37a53;
+      --muted:#a2876f;
+      --radius:16px;
+      --soft-glow:0 6px 18px rgba(139,94,60,0.12);
+      --brand-font:"Quicksand", sans-serif;
+      --ui:"Noto Sans TC",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#efe6db);
+      font-family:var(--ui);
+      color:#473225;
+      padding:36px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .container{
+      width:100%;
+      max-width:980px;
+      background:var(--card);
+      border-radius:20px;
+      box-shadow:var(--soft-glow);
+      padding:28px;
+    }
+    .header{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo{
+      width:90px;
+      height:auto;
+      border-radius:14px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.06);
+    }
+    /* Ellen's Café 標題 */
+    .brand-title{
+      font-family:var(--brand-font);
+      font-size:32px;
+      letter-spacing:0.5px;
+      color:var(--accent);
+      font-weight:600;
+    }
+    .brand-sub{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:4px;
+      letter-spacing:1px;
+    }
+    .main{
+      display:grid;
+      grid-template-columns:1fr 340px;
+      gap:22px;
+      margin-top:24px;
+    }
+    .card{
+      background:linear-gradient(180deg,#fff,#fff8f5);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--soft-glow);
+      border:1px solid rgba(139,94,60,0.06);
+    }
+    .card img{
+      width:100%;
+      height:auto;
+      border-radius:12px;
+      margin-top:10px;
+      box-shadow:0 6px 12px rgba(0,0,0,0.08);
+    }
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(139,94,60,0.12);
+      font-size:14px;
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:12px;
+      background:linear-gradient(180deg,var(--accent),var(--accent-2));
+      color:#fff;
+      border:none;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .thanks{
+      background:linear-gradient(90deg,#fffaf6,#fff2ea);
+      border-radius:12px;
+      padding:14px;
+      text-align:center;
+      color:var(--accent);
+      font-weight:700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="logo.png" alt="Ellen's Café Logo" class="logo">
+      <div>
+        <div class="brand-title">Ellen's Café</div>
+        <div class="brand-sub">手沖咖啡館</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <h2>品牌理念</h2>
+        <p>在 Ellen's Café，我們相信一杯好咖啡來自於慢工與細心。從淬選豆子、手沖溫度到拉花的最後一筆，每一步都是手作的溫度。</p>
+        <!-- 新增兩張圖片 -->
+        <img src="coffee1.jpg" alt="手沖咖啡過程">
+        <img src="coffee2.jpg" alt="咖啡拉花藝術">
+      </section>
+
+      <aside class="card">
+        <h3 style="color:var(--accent)">聯絡我們</h3>
+        <form id="contactForm">
+          <label>姓氏 <input name="lastname" type="text" required></label>
+          <label>電話 <input name="phone" type="text" required></label>
+          <label>Email <input name="email" type="email" required></label>
+          <label>內容 <textarea name="message" required></textarea></label>
+          <button class="btn" type="submit">送出</button>
+          <div id="status" style="font-size:13px;color:var(--muted)"></div>
+        </form>
+      </aside>
+    </main>
+
+    <div style="text-align:center;color:var(--muted);margin-top:16px;font-size:13px">
+      © Ellen's Café • 手作 x 溫度 • All rights reserved
+    </div>
+  </div>
+
+  <script>
+    const form=document.getElementById('contactForm');
+    const status=document.getElementById('status');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const thanks=document.createElement('div');
+      thanks.className='thanks';
+      thanks.textContent='感謝您對咖啡的熱愛！';
+      form.replaceWith(thanks);
+    });
+  </script>
+</body>
+</html>
