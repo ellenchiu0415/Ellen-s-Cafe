@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ellen's Café｜品牌形象</title>
+  <title>Ellen's Café｜職人手沖咖啡館</title> 
   <!-- 字型 -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
@@ -47,7 +47,6 @@
       border-radius:14px;
       box-shadow:0 6px 14px rgba(0,0,0,0.06);
     }
-    /* Ellen's Café 標題 */
     .brand-title{
       font-family:var(--brand-font);
       font-size:32px;
@@ -62,24 +61,39 @@
       letter-spacing:1px;
     }
     .main{
-      display:grid;
-      grid-template-columns:1fr 340px;
-      gap:22px;
+      display:block;
       margin-top:24px;
     }
     .card{
       background:linear-gradient(180deg,#fff,#fff8f5);
       border-radius:var(--radius);
       padding:20px;
+      margin-bottom:20px;
       box-shadow:var(--soft-glow);
       border:1px solid rgba(139,94,60,0.06);
     }
-    .card img{
-      width:100%;
-      height:auto;
-      border-radius:12px;
+    /* 圖片排版 */
+    .image-row{
+      display:flex;
+      gap:12px;
       margin-top:10px;
+    }
+    .image-row img{
+      width:50%;
+      height:200px;
+      object-fit:cover;
+      border-radius:12px;
       box-shadow:0 6px 12px rgba(0,0,0,0.08);
+    }
+    /* 小螢幕自動直排 */
+    @media(max-width:720px){
+      .image-row{
+        flex-direction:column;
+      }
+      .image-row img{
+        width:100%;
+        height:200px;
+      }
     }
     form{display:flex;flex-direction:column;gap:10px}
     input,textarea{
@@ -117,34 +131,36 @@
       <img src="logo.png" alt="Ellen's Café Logo" class="logo">
       <div>
         <div class="brand-title">Ellen's Café</div>
-        <div class="brand-sub">手沖咖啡館</div>
+        <div class="brand-sub">職人手沖咖啡館</div> 
       </div>
     </header>
 
     <main class="main">
       <section class="card">
         <h2>品牌理念</h2>
-        <p>在 Ellen's Café，我們相信一杯好咖啡來自於慢工與細心。從淬選豆子、手沖溫度到拉花的最後一筆，每一步都是手作的溫度。</p>
-        <!-- 新增兩張圖片 -->
-        <img src="coffee1.jpg" alt="手沖咖啡過程">
-        <img src="coffee2.jpg" alt="咖啡拉花藝術">
-      </section>
+        <p>在 Ellen's Café，我們相信一杯好咖啡來自於慢工與細心。從淬選豆子、手沖溫度到拉花，每一步都是手作的溫度。</p> 
 
-      <aside class="card">
-        <h3 style="color:var(--accent)">聯絡我們</h3>
-        <form id="contactForm">
-          <label>姓氏 <input name="lastname" type="text" required></label>
-          <label>電話 <input name="phone" type="text" required></label>
-          <label>Email <input name="email" type="email" required></label>
-          <label>內容 <textarea name="message" required></textarea></label>
-          <button class="btn" type="submit">送出</button>
-          <div id="status" style="font-size:13px;color:var(--muted)"></div>
-        </form>
-      </aside>
+        <div class="image-row">
+          <img src="coffee1.jpg" alt="手沖咖啡過程">
+          <img src="coffee2.jpg" alt="咖啡拉花藝術">
+        </div>
+      </section>
     </main>
 
+    <aside class="card">
+      <h3 style="color:var(--accent)">聯絡我們</h3>
+      <form id="contactForm">
+        <label>姓名 <input name="lastname" type="text" required></label> 
+        <label>電話 <input name="phone" type="text" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>內容 <textarea name="message" required></textarea></label>
+        <button class="btn" type="submit">送出</button>
+        <div id="status" style="font-size:13px;color:var(--muted)"></div>
+      </form>
+    </aside>
+
     <div style="text-align:center;color:var(--muted);margin-top:16px;font-size:13px">
-      © Ellen's Café • 手作 x 溫度 • All rights reserved
+      © Ellen's Café • All rights reserved 
     </div>
   </div>
 
